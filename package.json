@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-v1shvesh",
+  "version": "1.0.0",
+  "description": "My personal portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V1shvesh/V1shvesh.github.io.git"
+  },
+  "author": "V1shvesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/V1shvesh/V1shvesh.github.io/issues"
+  },
+  "homepage": "https://github.com/V1shvesh/V1shvesh.github.io#readme",
+  "devDependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  }
+}
