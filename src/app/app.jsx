@@ -12,7 +12,8 @@ const fullPageOptions = {
   touchSensitivity: 10,
   scrollSpeed: 500,
   hideScrollBars: true,
-  enableArrowKeys: true
+  enableArrowKeys: true,
+  activeSlide: 2
 };
 
 class App extends React.Component {
@@ -25,15 +26,14 @@ class App extends React.Component {
         </Slide>,
         <Slide></Slide>
       ],
-      slideChange: false,
       slideNo: 1
     }
     this.onSlideChangeStart = this.onSlideChangeStart.bind(this);
   }
 
   onSlideChangeStart(name, props, state, newState){
-    this.setState({slideChange: true, slideNo: newState.activeSlide});
-    console.log(this.state.slideNo);
+    this.setState({slideNo: newState.activeSlide});
+    // console.log(this.state.slideNo);
   }
 
   render(){
@@ -42,8 +42,8 @@ class App extends React.Component {
       <React.Fragment>
         <Fullpage {...fullPageOptions} 
         onSlideChangeStart = {this.onSlideChangeStart}
-        onSlideChangeEnd = {() => this.setState({slideChange: false})} />
-        <Flowchart trigger={this.state.slideChange} slideNo={this.state.slideNo} > </Flowchart>
+        />
+        <Flowchart slideNo={this.state.slideNo} > </Flowchart>
       </React.Fragment>
     );
   }

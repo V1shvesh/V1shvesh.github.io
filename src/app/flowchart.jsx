@@ -13,10 +13,18 @@ class Flowchart extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps(nextProps){
-		if(nextProps.trigger && nextProps.slideNo == 1)
+	componentWillMount(){
+		if(this.props.slideNo >= 1)
 			this.state.animate = " animate";
-		else if(nextProps.trigger && nextProps.slideNo == 0)
+		else
+			this.state.animate = " ";	
+		console.log(this.props.slideNo);
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.slideNo >= 1)
+			this.state.animate = " animate";
+		else
 			this.state.animate = " ";	
 		console.log(nextProps.slideNo);
 	}

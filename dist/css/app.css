@@ -2,7 +2,7 @@ html, body{
     margin: 0;
 }
 
-.ring{
+.ring{	
     position: fixed;
     width: 200px;
     height: 200px;
@@ -52,7 +52,7 @@ html, body{
     left: 50vw;
     background-color: #4682b4;
 	transform-origin: 0 0;
-	transition: height 0.5s ease 150ms;
+	transition: height 0.5s ease 132ms;
 }
 
 .flow-vertical.animate{
@@ -60,34 +60,58 @@ html, body{
 	height: 75vh;
 }
 
-@keyframes expand-vertical{
-    0%{
-        transform: scaleY(0);
-    }
-    100%{
-        transform: scaleY(75.2);
-    }
-}
-
 .flow-curve{
     position: absolute;
     width: 5vw;
     height: 5vh;
     top: 75vh;
-    border: solid 5px #4682b4;
-    background-color: transparent;
+    border: solid 5px #202020;
+	background-color: transparent;
+	transition: transform 0.5s ease;
+	transform: scale(0,0);
 }
 
 .flow-curve.left{
     left: 45vw;
     border-bottom-right-radius: 100% 100%;
     border-width: 0 5px 5px 0;
-    border-color: transparent #4682b4 #4682b4 transparent;
+    border-color: transparent #202020 #202020 transparent;
 }
 
 .flow-curve.right{
     left: 50vw;
     border-bottom-left-radius: 100% 100%;
     border-width: 0 0 5px 5px;
-    border-color: transparent transparent #4682b4 #4682b4;
+    border-color: transparent transparent #202020 #202020;
+}
+
+.flow-curve.animate{
+	transition: transform 0.5s ease;
+	transform: scale(1,1);
+}
+
+.flow-horizontal{
+	display: block;
+	position: absolute;
+	top: 80vh;
+	width: 1vw;
+	height: 5px;
+	background-color: #4682b4;
+	transition: transform 0.5s ease;
+	transform: scaleX(0);
+}
+
+.flow-horizontal.left{
+	left: 44vw;
+	transform-origin: right;
+}
+
+.flow-horizontal.right{
+	left: 55vw;
+	transform-origin: left;
+}
+
+.flow-horizontal.animate{
+	transition: transform 0.5s ease 500ms;
+	transform: scaleX(25);
 }
