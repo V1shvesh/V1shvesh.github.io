@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 class Ring extends React.Component {
     render() {
-      return <img class="ring" src={'img/'+this.props.src} />
+      return <img className="ring" src={'img/'+this.props.src} />
     }
 };
 

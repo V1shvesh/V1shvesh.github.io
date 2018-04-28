@@ -1,5 +1,41 @@
+html, body{
+    margin: 0;
+}
+
 .ring{
-    width: 400px;
-    height: 400px;
+    position: fixed;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    top: calc(50vh - 100px);
+    left: calc(50vw - 100px);
+    z-index: 2;
+}
+
+.profile{
+    width: 100%;
+    height: 100%;
+    /* animation: gradient 300ms ease  infinite; */
+}
+
+@keyframes gradient{
+    0% {background: radial-gradient(circle at center, #5fd3f3 0%, #202020 100%);}
+    10% {background: radial-gradient(circle at center, #5fd3f3 25%, #202020 100%);}
+    20% {background: radial-gradient(circle at center, #5fd3f3 50%, #202020 100%);}
+    30% {background: radial-gradient(circle at center, #5fd3f3 75%, #202020 100%);}
+    40% {background: radial-gradient(circle at center, #4682b4 25%, #5fd3f3 100%);}
+    50% {background: radial-gradient(circle at center, #4682b4 50%, #5fd3f3 100%);}
+    60% {background: radial-gradient(circle at center, #4682b4 75%, #5fd3f3 100%);}
+    70% {background: radial-gradient(circle at center, #202020 25%, #4682b4 100%);}
+    80% {background: radial-gradient(circle at center, #202020 50%, #4682b4 100%);}
+    90% {background: radial-gradient(circle at center, #202020 75%, #4682b4 100%);}
+    100% {background: radial-gradient(circle at center, #5fd3f3 0%, #202020 100%);}
+}
+
+.stage-konva{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    z-index: 1;
 }

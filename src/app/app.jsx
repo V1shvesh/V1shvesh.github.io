@@ -2,23 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react';
 
-import Ring from './ring.jsx';
+import Profile from './profile.jsx'
+import Flowchart from './flowchart'
+
+let i=0;
 
 const fullPageOptions = {
-  scrollSensitivity: 7,
-  touchSensitivity: 7,
+  scrollSensitivity: 10,
+  touchSensitivity: 10,
   scrollSpeed: 500,
   hideScrollBars: true,
   enableArrowKeys: true
 };
 
-const slides = [
-  <Slide> <Ring src='profile.jpg'></Ring> </Slide>,
-  <Slide> Slide 2 </Slide>
-];
-fullPageOptions.slides = slides;
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      flowTrigger: ()=>console.log("Change" + ++i)
+    }
+    this.state.slides = [
+      <Slide>
+        <Profile></Profile>
+        <Flowchart flowTrigger = {this.state.flowTrigger} 
+    flowTriggerFunc = {(flowTrigger) => this.setState({flowTrigger})}> </Flowchart>
+      </Slide>,
+      <Slide></Slide>
+    ]
+  }
+  render(){
+    fullPageOptions.slides = this.state.slides;
+    return (
+      <Fullpage {...fullPageOptions}  
+      onSlideChangeStart={this.state.flowTrigger}/>
+    );
+  }
+}
 
 ReactDOM.render(
-  <Fullpage {...fullPageOptions} />,
+  <App/>,
   document.getElementById('app')
 );

@@ -2,7 +2,7 @@
   "name": "portfolio-v1shvesh",
   "version": "1.0.0",
   "description": "My personal portfolio",
-  "main": "index.js",
+  "main": "src/app/app.jsx",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,8 +29,10 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "fullpage-react": "^3.0.31",
+    "konva": "^2.0.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-konva": "^1.7.2",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^3.1.3"
