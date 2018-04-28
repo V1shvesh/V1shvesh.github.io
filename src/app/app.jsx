@@ -19,22 +19,32 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      flowTrigger: ()=>console.log("Change" + ++i)
+      slides: [
+        <Slide>
+          <Profile></Profile>
+        </Slide>,
+        <Slide></Slide>
+      ],
+      slideChange: false,
+      slideNo: 1
     }
-    this.state.slides = [
-      <Slide>
-        <Profile></Profile>
-        <Flowchart flowTrigger = {this.state.flowTrigger} 
-    flowTriggerFunc = {(flowTrigger) => this.setState({flowTrigger})}> </Flowchart>
-      </Slide>,
-      <Slide></Slide>
-    ]
+    this.onSlideChangeStart = this.onSlideChangeStart.bind(this);
   }
+
+  onSlideChangeStart(name, props, state, newState){
+    this.setState({slideChange: true, slideNo: newState.activeSlide});
+    console.log(this.state.slideNo);
+  }
+
   render(){
     fullPageOptions.slides = this.state.slides;
     return (
-      <Fullpage {...fullPageOptions}  
-      onSlideChangeStart={this.state.flowTrigger}/>
+      <React.Fragment>
+        <Fullpage {...fullPageOptions} 
+        onSlideChangeStart = {this.onSlideChangeStart}
+        onSlideChangeEnd = {() => this.setState({slideChange: false})} />
+        <Flowchart trigger={this.state.slideChange} slideNo={this.state.slideNo} > </Flowchart>
+      </React.Fragment>
     );
   }
 }

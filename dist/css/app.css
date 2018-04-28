@@ -15,7 +15,6 @@ html, body{
 .profile{
     width: 100%;
     height: 100%;
-    /* animation: gradient 300ms ease  infinite; */
 }
 
 @keyframes gradient{
@@ -32,10 +31,63 @@ html, body{
     100% {background: radial-gradient(circle at center, #5fd3f3 0%, #202020 100%);}
 }
 
-.stage-konva{
+.flow-container{
+    display: block;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    top:0;
-    z-index: 1;
+    top: 50vh;
+    z-index: -1;
+}
+
+.flow-container:nth-child(1){
+    z-index: 2;
+}
+
+.flow-vertical{
+    display: block;
+    position: relative;
+    height: 1vh;
+    width: 5px;
+    left: 50vw;
+    background-color: #4682b4;
+	transform-origin: 0 0;
+	transition: height 0.5s ease 150ms;
+}
+
+.flow-vertical.animate{
+	transition: ease 0.5s;
+	height: 75vh;
+}
+
+@keyframes expand-vertical{
+    0%{
+        transform: scaleY(0);
+    }
+    100%{
+        transform: scaleY(75.2);
+    }
+}
+
+.flow-curve{
+    position: absolute;
+    width: 5vw;
+    height: 5vh;
+    top: 75vh;
+    border: solid 5px #4682b4;
+    background-color: transparent;
+}
+
+.flow-curve.left{
+    left: 45vw;
+    border-bottom-right-radius: 100% 100%;
+    border-width: 0 5px 5px 0;
+    border-color: transparent #4682b4 #4682b4 transparent;
+}
+
+.flow-curve.right{
+    left: 50vw;
+    border-bottom-left-radius: 100% 100%;
+    border-width: 0 0 5px 5px;
+    border-color: transparent transparent #4682b4 #4682b4;
 }
