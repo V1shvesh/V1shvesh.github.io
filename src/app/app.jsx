@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react';
 
-import Profile from './profile.jsx'
+import Profile from './profile'
 import Flowchart from './flowchart'
+import {Ring, RingGroup} from './ring';
 
 let i=0;
 
@@ -12,9 +13,12 @@ const fullPageOptions = {
   touchSensitivity: 10,
   scrollSpeed: 500,
   hideScrollBars: true,
-  enableArrowKeys: true,
-  activeSlide: 2
+  enableArrowKeys: true
 };
+
+const ringImg = [
+  "placeholder.jpg",
+];
 
 class App extends React.Component {
   constructor(props) {
@@ -24,9 +28,13 @@ class App extends React.Component {
         <Slide>
           <Profile></Profile>
         </Slide>,
-        <Slide></Slide>
+        <Slide>
+        <div className="pavillion">
+          Yo
+        </div>
+        </Slide>
       ],
-      slideNo: 1
+      slideNo: 0
     }
     this.onSlideChangeStart = this.onSlideChangeStart.bind(this);
   }
@@ -43,6 +51,7 @@ class App extends React.Component {
         <Fullpage {...fullPageOptions} 
         onSlideChangeStart = {this.onSlideChangeStart}
         />
+        <RingGroup slideNo={this.state.slideNo} src={ringImg}></RingGroup>
         <Flowchart slideNo={this.state.slideNo} > </Flowchart>
       </React.Fragment>
     );

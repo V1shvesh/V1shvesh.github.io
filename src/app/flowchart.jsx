@@ -4,11 +4,7 @@ import ReactDOM from 'react-dom';
 class Flowchart extends React.Component {
 	constructor(props){
 		super(props);
-		this.vw = window.innerWidth;
-		this.vh = window.innerHeight;
 		this.state = {
-			color:"blue",
-			points: [this.vw/2,this.vh*(0.5)],
 			animate: ""
 		};
 	}
@@ -18,7 +14,7 @@ class Flowchart extends React.Component {
 			this.state.animate = " animate";
 		else
 			this.state.animate = " ";	
-		console.log(this.props.slideNo);
+		// console.log(this.props.slideNo);
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -26,18 +22,21 @@ class Flowchart extends React.Component {
 			this.state.animate = " animate";
 		else
 			this.state.animate = " ";	
-		console.log(nextProps.slideNo);
+		// console.log(nextProps.slideNo);
 	}
 
 	render(){
 		return (
-		<div className = "flow-container">
+		<React.Fragment>
 			<div className = {"flow-vertical" + this.state.animate}></div>
-			<div className = {"flow-curve left" + this.state.animate}></div>
-			<div className = {"flow-curve right" + this.state.animate}></div>
+			<div className = {"flow-curve left down" + this.state.animate}></div>
+			<div className = {"flow-curve right down" + this.state.animate}></div>
 			<div className = {"flow-horizontal left" + this.state.animate}></div>
 			<div className = {"flow-horizontal right" + this.state.animate}></div>
-		</div>
+			<div className = {"flow-curve left up" + this.state.animate}></div>
+			<div className = {"flow-curve right up" + this.state.animate}></div>
+			<div className = {"flow-pavillion" + this.state.animate}></div>
+		</React.Fragment>
 		);
 	}
     
